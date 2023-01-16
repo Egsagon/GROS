@@ -5,13 +5,14 @@ https://discord.com/api/oauth2/authorize?client_id=1064590959016423424&permissio
 import json
 import string
 import discord
+from collections import OrderedDict
 
 # Settings
 triggers = {'GROS': ['né', 'ner', 'nez', 'nai', 'nait', 'née', 'naie', 'nées', 'nés', 'net',
                      'néz', 'ney', 'nei', 'nes', 'nais'],
             'GARS': ['ni','ny', 'nit']}
 
-board = json.load(open('board.json'))
+board: dict = json.load(open('board.json'))
 
 # Initialize client
 client = discord.Client(intents = discord.Intents.all())
@@ -25,17 +26,23 @@ async def on_message(msg: discord.Message) -> None:
     # Show scoreboard
     if msg.content.startswith('$stats'):
         
-        ebd = discord.Embed(
-            title = 'Stats' + f'''name {f"{0} | {0}": >100}'''
-        )
+        pad = 10
+        ebd = discord.Embed(title = f'Stats{pad * " "}GROS, GARS')
         
-        for author, counts in board.items():
+        # Sort items
+        items = list(board.items())
+        items.sort(key = lambda l: l[1]['GROS'] + l[1]['GARS'], reverse = 1)
+        
+        for author, counts in items:
             
-            ebd.add_field(
-                name = author + f'''{f"{counts['GROS']} | {counts['GARS']}": >100}''',
-                value = '',
-                inline = True
-            )
+            # TODO - Crappy, refactor
+            a, b = counts.values()
+            x = list(f"{f'{a}, {b}': >{pad + 18}}")
+            
+            for i, char in enumerate(author): x[i] = char
+            x = ''.join(x)
+            
+            ebd.add_field(name = f'```{x}```', value = '', inline = False)
         
         return await msg.channel.send(embed = ebd)
 
