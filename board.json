@@ -1,6 +1,34 @@
 {
    "Egsagon": {
-      "GROS": 7,
+      "GROS": 30,
       "GARS": 3
+   },
+   "Leblorkvert": {
+      "GROS": 10,
+      "GARS": 3
+   },
+   "Tonariel": {
+      "GROS": 10,
+      "GARS": 0
+   },
+   "cestblessipo": {
+      "GROS": 4,
+      "GARS": 0
+   },
+   "gros": {
+      "GROS": 5,
+      "GARS": 0
+   },
+   "meccom": {
+      "GROS": 4,
+      "GARS": 0
+   },
+   "lesoldatalex": {
+      "GROS": 2,
+      "GARS": 0
+   },
+   "Cambouis \ud83c\udf41": {
+      "GROS": 5,
+      "GARS": 1
    }
 }
