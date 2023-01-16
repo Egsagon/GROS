@@ -1,0 +1,26 @@
+{
+   "Egsagon": {
+      "GROS": 7,
+      "GARS": 3
+   },
+   "Leblorkvert": {
+      "GROS": 2,
+      "GARS": 1
+   },
+   "Tonariel": {
+      "GROS": 1,
+      "GARS": 0
+   },
+   "cestblessipo": {
+      "GROS": 3,
+      "GARS": 0
+   },
+   "gros": {
+      "GROS": 5,
+      "GARS": 0
+   },
+   "meccom": {
+      "GROS": 1,
+      "GARS": 0
+   }
+}
