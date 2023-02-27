@@ -1,1 +1,3 @@
 ### GROS
+
+Random discord bot
